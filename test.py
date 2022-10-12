@@ -1,31 +1,23 @@
-def temp_conversion(temp, current_unit, to_be_convered):
+from conversions import*
+from conversions_refactored import convert
 
-    if to_be_convered == "F" and current_unit == "C":
-        new_temp = round(9 / 5 * temp + 32, 3)
-        print("The converted temperature in Fahrenhite scale is " + str(new_temp) + " degrees")
+print("Celsius to kelvin and fahrenheit")
+print(convertCelsiusToKelvin(300.00),"K")
+print(convertCelsiusToFahrnite(300.00),"F")
 
-    elif to_be_convered == "C" and current_unit == "F":
-        new_temp = round(5 / 9 * (temp - 32), 3)
-        print("The converted temperature in Celcius scale is " + str(new_temp) + " degrees")
-
-    elif to_be_convered == "K" and current_unit == "C":
-        new_temp = round(temp + 273.15, 3)
-        print("The converted temperature in Kelvin scale is " + str(new_temp) + " degrees")
-
-    elif to_be_convered == "C" and current_unit == "K":
-        new_temp = round(temp - 273.15, 3)
-        print("The converted temperature in Celcius scale is " + str(new_temp) + " degrees")
-
-    elif to_be_convered == "F" and current_unit == "K":
-        new_temp = round(9 / 5 * (temp - 273.15) + 32, 3)
-        print("The converted temperature in Fahrenhite scale is " + str(new_temp) + " degrees")
-
-    else:
-        new_temp = round(5 / 9 * (temp - 32) + 273.15, 3)
-        print("The converted temperature in Kelvin scale is " + str(new_temp) + " degrees")
+print("fahrenheit to celsius and kelvin")
+print(round(convertFahrenheittoCelsius(300.00),3),"C")
+print(round(convertFahrenheitToKelvin(300.00),3),"K")
 
 
-temp_conversion(108, "C", "F")
-temp_conversion(235.685, "K", "F")
+print("************Using single function perform all conversion************")
+print(convert("celsius","kelvin",300.00),"K")
+print(convert("celsius","fahrenheit",300.00),"C")
+
+
+print(convert("meter","yard",50.00),"yards")
+print(convert("yard","meter",300.00),"m")
+
+print(convert("celsius","metre",4));
 
 
