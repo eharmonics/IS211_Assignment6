@@ -1,35 +1,30 @@
-def temp_conversion(temp, current_unit, to_be_convered):
+def convert(fromUnit,toUnit,val):
+    if(fromUnit=="celsius" and toUnit=="fahrenheit"):
+        return 1.8*val+32
+    elif fromUnit=="celsius" and toUnit=="kelvin":
+        return val + 273.15
+    elif toUnit=="celsius" and fromUnit=="fahrenheit":
+        return float(5/9)*(val-32)
+    elif toUnit=="kelvin" and fromUnit=="fahrenheit":
+        return float(5/9)*(val+459.67)
+    elif fromUnit=="kelvin" and toUnit=="fahrenheit":
+       return (val-273.15)*float(9/5)+32
+    elif fromUnit=="kelvin" and toUnit=="celsius":
+        return val - 273.15
 
-    if to_be_convered == "F" and current_unit == "C":
-        new_temp = round(9 / 5 * temp + 32, 3)
-        print("The converted temperature in Fahrenhite scale is " + str(new_temp) + " degrees")
+    #distance conversion
+    elif fromUnit=="mile" and toUnit=="yard":
+        return val*1760 
+    elif fromUnit=="yard" and toUnit=="mile":
+        return val/1760
+    elif fromUnit=="mile" and toUnit=="meter":
+        return val*1609.34
+    elif fromUnit=="meter" and toUnit=="mile":
+        return val/1609.34
+    elif fromUnit=="meter" and toUnit=="yard":
+        return val*1.094
+    elif fromUnit=="yard" and toUnit=="meter":
+        return val/1.094
+    return Exception
 
-    elif to_be_convered == "C" and current_unit == "F":
-        new_temp = round(5 / 9 * (temp - 32), 3)
-        print("The converted temperature in Celcius scale is " + str(new_temp) + " degrees")
-
-    elif to_be_convered == "K" and current_unit == "C":
-        new_temp = round(temp + 273.15, 3)
-        print("The converted temperature in Kelvin scale is " + str(new_temp) + " degrees")
-
-    elif to_be_convered == "C" and current_unit == "K":
-        new_temp = round(temp - 273.15, 3)
-        print("The converted temperature in Celcius scale is " + str(new_temp) + " degrees")
-
-    elif to_be_convered == "F" and current_unit == "K":
-        new_temp = round(9 / 5 * (temp - 273.15) + 32, 3)
-        print("The converted temperature in Fahrenhite scale is " + str(new_temp) + " degrees")
-    elif to_be_convered == "K" and current_unit == "F":
-        new_temp = round(5 / 9 * (temp - 32) + 273.15, 3)
-        print("The converted temperature in Kelvin scale is " + str(new_temp) + " degrees")
-    else:
-        print("The converted temperature in same scale is " + str(temp) + " degrees")
-
-
-while 1:
-    f = input('enter fromUnit like capital K for Kelvin: ')
-    t = input('enter toUnit like capital C for Celcius: ')
-    v = input('enter value like 1: ')
-
-    temp_conversion(float(v), f, t)
 
